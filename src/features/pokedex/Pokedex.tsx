@@ -1,16 +1,25 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
-import { addPokemon, deletePokemon } from "./pokedexSlice";
+import { pokedexSlice } from "./pokedexSlice";
 
 const Pokedex = () => {
-  const count = useSelector((state: RootState) => state.pokedex.length);
+  const selected = useSelector((state: RootState) => state.pokedex.itens);
   const dispatch = useDispatch();
   return (
     <div>
-      <button onClick={() => dispatch(deletePokemon())}>+</button>
-      {count}
-      <button onClick={() => dispatch(addPokemon())}>+</button>
+      <h1>POKEDEX</h1>
+      {selected.map((item, index) => (
+        <div key={index}>
+          {item.name}
+          <img src={item.image} alt={item.name} />
+          <button
+            onClick={() => dispatch(pokedexSlice.actions.addPokemon(item))}
+          >
+            Add
+          </button>
+        </div>
+      ))}
     </div>
   );
 };

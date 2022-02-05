@@ -1,20 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Pokemon } from "../../components/Catalog";
+import addPokemon from "../../services/addPokemon";
+import deletePokemon from "../../services/deletePokemon";
+
+export interface PokedexState {
+  itens: Pokemon[];
+}
+
+const initialState: PokedexState = {
+  itens: [],
+};
 
 export const pokedexSlice = createSlice({
   name: "pokedex",
-  initialState: {
-    length: 0,
-  },
+  initialState,
   reducers: {
-    addPokemon: (state) => {
-      state.length += 1;
-    },
-    deletePokemon: (state) => {
-      state.length -= 1;
-    },
+    addPokemon,
+    deletePokemon,
   },
 });
-
-export const { addPokemon, deletePokemon } = pokedexSlice.actions;
 
 export default pokedexSlice.reducer;

@@ -1,5 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { pokedexSlice } from "../features/pokedex/pokedexSlice";
 
 const POKEMONS = gql`
   {
@@ -13,7 +15,7 @@ const POKEMONS = gql`
   }
 `;
 
-interface Pokemon {
+export interface Pokemon {
   id: number;
   name: string;
   image: string;
@@ -26,6 +28,7 @@ interface PokemonsData {
 }
 
 const Catalog = () => {
+  const dispatch = useDispatch();
   const { loading, error, data } = useQuery<PokemonsData>(POKEMONS);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
@@ -36,7 +39,16 @@ const Catalog = () => {
         <div key={index}>
           {item.name}
           <img src={item.image} alt={item.name} />
-          {item.id}
+          <button
+            onClick={() => dispatch(pokedexSlice.actions.addPokemon(item))}
+          >
+            Add
+          </button>
+          <button
+            onClick={() => dispatch(pokedexSlice.actions.deletePokemon(item))}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </>
