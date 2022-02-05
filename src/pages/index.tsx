@@ -1,10 +1,8 @@
-import React from 'react';
-import Catalog from '../components/Catalog';
+import React from "react";
+import Catalog from "../components/Catalog/Index";
 
 const Index = () => {
-  return (
-      <Catalog />
-  );
-}
+  return <Catalog />;
+};
 
 export default Index;

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Pokemon } from "../../components/Catalog";
+import { Pokemon } from "../../components/Catalog/Index";
 import addPokemon from "../../services/addPokemon";
 import deletePokemon from "../../services/deletePokemon";
 
