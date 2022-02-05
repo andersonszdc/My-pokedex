@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
 import Item from "./Item/Index";
+import { Content } from "./styles";
 
 const POKEMONS = gql`
   {
@@ -32,11 +33,11 @@ const Catalog = () => {
   if (error) return <div>Error</div>;
   const { results } = data!.pokemons;
   return (
-    <>
+    <Content>
       {results.map((item, index) => (
         <Item item={item} key={index} />
       ))}
-    </>
+    </Content>
   );
 };
 
