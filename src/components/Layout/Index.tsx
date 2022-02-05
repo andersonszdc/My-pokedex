@@ -1,13 +1,14 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { Navbar } from "./styles";
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/my-pokedex">Pokedex</Link>
-      </nav>
+      <Navbar>
+        <Link className="item" to="/">Home</Link>
+        <Link className="item" to="/my-pokedex">Pokedex</Link>
+      </Navbar>
       <Outlet />
     </>
   );

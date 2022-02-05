@@ -14,6 +14,7 @@ export const Card = styled.div`
   }
 
   .btn-action {
+    width: 100%;
     cursor: pointer;
   }
 `;
