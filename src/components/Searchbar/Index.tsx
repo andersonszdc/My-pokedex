@@ -1,9 +1,19 @@
 import React from "react";
 
-const Searchbar = () => {
+type SearchbarProps = {
+  search: string;
+  setSearch: (arg0: string) => void;
+};
+
+const Searchbar = ({ search, setSearch }: SearchbarProps) => {
   return (
     <div>
-      <input type="text" />
+      <input
+      placeholder="Digite algo..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        type="text"
+      />
     </div>
   );
 };

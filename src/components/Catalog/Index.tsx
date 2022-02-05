@@ -27,14 +27,22 @@ interface PokemonsData {
   };
 }
 
-const Catalog = () => {
+type CatalogProps = {
+  search: string;
+};
+
+const Catalog = ({ search }: CatalogProps) => {
   const { loading, error, data } = useQuery<PokemonsData>(POKEMONS);
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
+
   const { results } = data!.pokemons;
+  const filtered = results.filter((item) => item.name.includes(search));
+
   return (
     <Content>
-      {results.map((item, index) => (
+      {filtered.map((item, index) => (
         <Item item={item} key={index} />
       ))}
     </Content>
