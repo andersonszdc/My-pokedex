@@ -7,7 +7,7 @@ const addPokemon: CaseReducer<PokedexState, PayloadAction<Pokemon>> = (
   action
 ) => {
   const checkId = (item: Pokemon) => {
-    return item.id === action.payload.id;
+    return item.name === action.payload.name;
   };
 
   if (!state.itens.find(checkId)) {

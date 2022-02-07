@@ -6,7 +6,7 @@ const deletePokemon: CaseReducer<PokedexState, PayloadAction<Pokemon>> = (
   state,
   action
 ) => {
-  const i = state.itens.findIndex((item) => item.id === action.payload.id);
+  const i = state.itens.findIndex((item) => item.name === action.payload.name);
 
   state.itens.splice(i, 1);
 };
