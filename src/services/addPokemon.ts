@@ -12,6 +12,7 @@ const addPokemon: CaseReducer<PokedexState, PayloadAction<Pokemon>> = (
 
   if (!state.itens.find(checkId)) {
     state.itens.push(action.payload);
+    localStorage.setItem("pokedex", JSON.stringify([...state.itens]));
   }
 };
 

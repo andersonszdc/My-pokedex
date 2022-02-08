@@ -5,6 +5,7 @@ import Item from "./Item/Index";
 
 const Pokedex = () => {
   const selected = useSelector((state: RootState) => state.pokedex.itens);
+
   return (
     <div>
       <h1>POKEDEX</h1>

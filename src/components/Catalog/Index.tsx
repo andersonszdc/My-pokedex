@@ -9,13 +9,6 @@ export interface Pokemon {
   url: string;
 }
 
-// interface PokemonsData {
-//   pokemons: {
-//     results: Pokemon[];
-//     next: string;
-//   };
-// }
-
 type CatalogProps = {
   search: string;
 };
@@ -37,7 +30,6 @@ const Catalog = ({ search }: CatalogProps) => {
   useEffect(() => {
     const interserctionObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        console.log("on");
         setCurrentOffset((previousOffset) => previousOffset + 20);
       }
     });

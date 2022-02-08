@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Pokemon } from "../../components/Catalog/Index";
 import addPokemon from "../../services/addPokemon";
 import deletePokemon from "../../services/deletePokemon";
+import getStorage from "../../services/getStorage";
 
 export interface PokedexState {
   itens: Pokemon[];
@@ -17,6 +18,7 @@ export const pokedexSlice = createSlice({
   reducers: {
     addPokemon,
     deletePokemon,
+    getStorage,
   },
 });
 
